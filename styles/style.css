@@ -44,8 +44,14 @@ body {
     background-color: var(--bg-dark);
     color: #333;
     max-width: 100vw;
-    min-height: 300vh;
+    height: 100%;
     overflow-x: hidden;
+}
+
+html,
+body {
+    height: auto;
+    min-height: 100vh;
 }
 
 .container {
@@ -102,4 +108,21 @@ body {
 
 .nav__link:hover::after {
     width: 80%;
+}
+
+/* main content */
+.container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+}
+
+/* hero */
+section.hero {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+    height: 100vh;
 }

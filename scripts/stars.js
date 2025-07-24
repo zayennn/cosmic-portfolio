@@ -1,183 +1,117 @@
-$(document).ready(function () {
-    const totalStars = 200;
-    const starLayers = [
-        { size: 3, speed: 0.3, opacity: 1 },
-        { size: 2, speed: 0.15, opacity: 0.7 },
-        { size: 1, speed: 0.07, opacity: 0.4 }
-    ];
+// Jumlah bintang dan level ukuran
+const starCount = 200;
+const starLevels = [
+    { size: 6, speed: 0.05, brightness: 255 },   // paling besar dan paling lambat
+    { size: 5, speed: 0.1, brightness: 200 },
+    { size: 4, speed: 0.15, brightness: 150 },
+    { size: 3, speed: 0.2, brightness: 100 }, // paling kecil dan paling cepat
+];
 
-    const $container = $('.stars__container');
-    const $stars = [];
+// Ambil tinggi dokumen
+const documentHeight = Math.max(
+    document.body.scrollHeight,
+    document.documentElement.scrollHeight,
+    document.body.offsetHeight,
+    document.documentElement.offsetHeight,
+    document.body.clientHeight,
+    document.documentElement.clientHeight
+);
 
-    for (let i = 0; i < totalStars; i++) {
-        const layer = starLayers[Math.floor(Math.random() * starLayers.length)];
-        const $star = $('<div class="star"></div>');
+// Buat bintang
+for (let i = 0; i < starCount; i++) {
+    const star = document.createElement("div");
+    star.classList.add("star");
 
-        const x = Math.random() * window.innerWidth;
-        const y = Math.random() * document.body.scrollHeight;
+    const level = starLevels[Math.floor(Math.random() * starLevels.length)];
+    star.style.width = `${level.size}px`;
+    star.style.height = `${level.size}px`;
+    star.style.backgroundColor = `rgb(${level.brightness}, ${level.brightness}, ${level.brightness})`;
+    star.style.left = `${Math.random() * window.innerWidth}px`;
+    star.style.top = `${Math.random() * documentHeight}px`;
+    star.dataset.speed = level.speed;
 
-        $star.css({
-            width: layer.size + 'px',
-            height: layer.size + 'px',
-            left: x + 'px',
-            top: y + 'px',
-            opacity: layer.opacity,
-            background: 'white'
-        });
+    document.body.appendChild(star);
+}
 
-        $container.append($star);
-        $stars.push({ el: $star, speed: layer.speed, initialY: y, size: layer.size });
-    }
-
-    $(window).on('scroll', function () {
-        const scrollTop = $(this).scrollTop();
-        $stars.forEach(star => {
-            const newY = star.initialY - scrollTop * star.speed;
-            star.el.css('transform', `translateY(${newY}px)`);
-        });
+// Parallax scroll
+window.addEventListener("scroll", () => {
+    const scrollTop = window.scrollY;
+    document.querySelectorAll(".star").forEach((star) => {
+        const speed = parseFloat(star.dataset.speed);
+        star.style.transform = `translateY(${scrollTop * speed}px)`;
     });
+});
 
-    function spawnShootingStar() {
-        const $shootingStar = $('<div class="shooting-star"></div>');
-        const startX = Math.random() * window.innerWidth;
-        const startY = Math.random() * (window.innerHeight / 2);
+// Bintang jatuh
+function createShootingStar() {
+    const star = document.createElement("div");
+    star.classList.add("shooting-star");
 
-        $shootingStar.css({
-            top: startY + 'px',
-            left: startX + 'px',
-        });
+    const startX = Math.random() * window.innerWidth;
+    const startY = Math.random() * (window.innerHeight / 2);
 
-        $('.stars__container').append($shootingStar);
-        setTimeout(() => $shootingStar.remove(), 1000);
-    }
+    star.style.left = `${startX}px`;
+    star.style.top = `${startY}px`;
 
-    setInterval(() => Math.random() > 0.4 && spawnShootingStar(), 1500);
+    document.body.appendChild(star);
 
-    let blackHoleActive = false;
+    setTimeout(() => star.remove(), 1000);
+}
+
+setInterval(() => {
+    if (Math.random() < 0.5) createShootingStar();
+}, 3000);
+
+// Black hole
+function createBlackHole() {
+    const blackHole = document.createElement("div");
+    blackHole.classList.add("black-hole");
+
+    const left = Math.random() * (window.innerWidth - 120);
+    const top = Math.random() * (documentHeight - 120);
+
+    blackHole.style.left = `${left}px`;
+    blackHole.style.top = `${top + window.scrollY}px`;
+    document.body.appendChild(blackHole);
+
+    // Hisap bintang dalam radius
+    const radius = 150;
+    const centerX = left + 60;
+    const centerY = top + 60;
+
     const absorbedStars = [];
 
-    function spawnBlackHole() {
-        if (blackHoleActive) return;
-        blackHoleActive = true;
+    document.querySelectorAll(".star").forEach((star) => {
+        const rect = star.getBoundingClientRect();
+        const starX = rect.left + rect.width / 2;
+        const starY = rect.top + rect.height / 2;
+        const dist = Math.hypot(centerX - starX, centerY - starY);
 
-        const $blackHole = $('<div class="black-hole"></div>');
+        if (dist < radius) {
+            const deltaX = centerX - starX;
+            const deltaY = centerY - starY;
 
-        const bhWidth = 120;
-        const bhHeight = 120;
+            star.style.transition = "transform 1.5s ease-in-out, opacity 1.5s ease-in-out";
+            star.style.transform = `translate(${deltaX}px, ${deltaY}px) scale(0)`;
+            star.style.opacity = 0;
 
-        const maxX = window.innerWidth - bhWidth;
-        const maxY = document.body.scrollHeight - bhHeight;
+            absorbedStars.push(star);
+        }
+    });
 
-        const randX = Math.random() * maxX;
-        const randY = Math.random() * maxY;
-
-        $blackHole.css({
-            position: 'absolute',
-            left: randX + 'px',
-            top: randY + 'px',
+    // Remove blackhole and respawn absorbed stars
+    setTimeout(() => {
+        blackHole.remove();
+        absorbedStars.forEach((star) => {
+            star.style.transition = "none";
+            star.style.transform = "translateY(0) scale(1)";
+            star.style.opacity = 1;
+            star.style.left = `${Math.random() * window.innerWidth}px`;
+            star.style.top = `${Math.random() * documentHeight}px`;
         });
+    }, 8000);
+}
 
-        $('.stars__container').append($blackHole);
-
-        const bhCenterX = randX + bhWidth / 2;
-        const bhCenterY = randY + bhHeight / 2;
-
-        const absorptionInterval = setInterval(() => {
-            const $availableStars = $('.star').not('.absorbed');
-            if ($availableStars.length === 0) return;
-
-            let closestStar = null;
-            let minDistance = Infinity;
-
-            $availableStars.each(function () {
-                const $star = $(this);
-                const offset = $star.offset();
-                const starX = offset.left + $star.width() / 2;
-                const starY = offset.top + $star.height() / 2;
-
-                const distance = Math.sqrt(
-                    Math.pow(bhCenterX - starX, 2) +
-                    Math.pow(bhCenterY - starY, 2)
-                );
-
-                if (distance < minDistance) {
-                    minDistance = distance;
-                    closestStar = $star;
-                }
-            });
-
-            if (closestStar && minDistance < 500) {
-                absorbStar(closestStar, bhCenterX, bhCenterY);
-            }
-        }, 200);
-
-        setTimeout(() => {
-            clearInterval(absorptionInterval);
-            $blackHole.addClass('disappear');
-            setTimeout(() => {
-                $blackHole.remove();
-                blackHoleActive = false;
-                respawnStars();
-            }, 1500); // match blackhole-disappear duration
-        }, 7000);
-    }
-
-    function absorbStar($star, bhCenterX, bhCenterY) {
-        $star.addClass('absorbed');
-        absorbedStars.push($star);
-
-        const offset = $star.offset();
-        const starX = offset.left + $star.width() / 2;
-        const starY = offset.top + $star.height() / 2;
-
-        const dx = bhCenterX - starX;
-        const dy = bhCenterY - starY;
-
-        $star.css('will-change', 'auto');
-
-        TweenMax.to($star, 1, {
-            x: dx,
-            y: dy,
-            scale: 0,
-            opacity: 0,
-            ease: Power2.easeIn,
-            onComplete: () => {
-                $star.css('display', 'none');
-            }
-        });
-    }
-
-    function respawnStars() {
-        absorbedStars.forEach(($star, index) => {
-            setTimeout(() => {
-                const newX = Math.random() * window.innerWidth;
-                const newY = Math.random() * document.body.scrollHeight;
-
-                $star.css({
-                    left: newX + 'px',
-                    top: newY + 'px',
-                    display: 'block',
-                    opacity: 0,
-                    transform: 'translate(0, 0) scale(0.5)',
-                    boxShadow: 'none'
-                });
-
-                $star.removeClass('absorbed');
-                $star.addClass('respawning');
-
-                TweenMax.to($star, 1, {
-                    opacity: 1,
-                    scale: 1,
-                    boxShadow: '0 0 20px rgba(255, 255, 255, 0.8), 0 0 10px white',
-                    ease: Power2.easeOut,
-                    onComplete: () => $star.removeClass('respawning')
-                });
-            }, index * 5); // lebih cepat
-        });
-
-        absorbedStars.length = 0;
-    }
-
-    setInterval(() => Math.random() > 0.7 && spawnBlackHole(), 10000);
-    setTimeout(spawnBlackHole, 3000);
-});
+setInterval(() => {
+    if (Math.random() < 0.7) createBlackHole();
+}, 10000);
