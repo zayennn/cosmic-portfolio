@@ -48,18 +48,17 @@
     <div class="container">
         <section class="hero">
             <div class="hero__content">
-                <p class="hero__subtitle">Your Vision, My Code</p>
-                <h1 class="hero__title">Elang Atha Zahran</h1>
-                <p class="hero__description">junior fullstack web developer</p>
-                <a href="#" class="btn btn--primary">Get Started</a>
+                <p class="hero__subtitle">Hello Everyone, I'm</p>
+                <h1 class="hero__title">
+                    Elang Atha <span>Zahran 👋</span>
+                </h1>
+                <p class="hero__description">
+                    I'm a, <span id="typed"></span>
+                </p>
+                <a href="#" class="btn btn-primary">About me</a>
             </div>
-        </section>
-        <section class="hero">
-            <div class="hero__content">
-                <p class="hero__subtitle">Your Vision, My Code</p>
-                <h1 class="hero__title">Elang Atha Zahran</h1>
-                <p class="hero__description">junior fullstack web developer</p>
-                <a href="#" class="btn btn--primary">Get Started</a>
+            <div class="hero-image">
+                <img src="./images/me.jpg" alt="Profile Image">
             </div>
         </section>
     </div>
@@ -71,6 +70,18 @@
     <!-- gsap -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+
+    <!-- typed js -->
+    <script src="https://unpkg.com/typed.js@2.1.0/dist/typed.umd.js"></script>
+    <script>
+        var typed2 = new Typed('#typed', {
+            strings: ['web designer', 'junior fullstack web developer', 'freelancer', 'your vision, my code'],
+            typeSpeed: 10,
+            backSpeed: 0,
+            fadeOut: true,
+            loop: true
+        });
+    </script>
 
     <!-- my styles -->
     <script src="./scripts/cursor.js"></script>

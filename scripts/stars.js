@@ -1,5 +1,5 @@
 // Jumlah bintang dan level ukuran
-const starCount = 200;
+const starCount = 30;
 const starLevels = [
     { size: 6, speed: 0.05, brightness: 255 },   // paling besar dan paling lambat
     { size: 5, speed: 0.1, brightness: 200 },

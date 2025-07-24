@@ -95,7 +95,7 @@ function updateDots(delta) {
     });
 }
 
-document.querySelectorAll("a, button, input, select, textarea, h1, h2, h3, h4, h5, h6").forEach(el => {
+document.querySelectorAll("a, button, input, select, textarea, h1, h2, h3, h4, h5, h6, p, small").forEach(el => {
     el.addEventListener("mouseenter", () => {
         document.body.classList.add("hovering");
     });
