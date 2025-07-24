@@ -1,0 +1,136 @@
+/* Stars */
+.stars__container {
+    position: absolute;
+    top: 0;
+    left: 0;
+    height: 100%;
+    min-height: 100%;
+    pointer-events: none;
+    z-index: -1;
+    width: 100%;
+    overflow: hidden;
+}
+
+.star {
+    position: absolute;
+    border-radius: 50%;
+    background: white;
+    box-shadow: 0 0 20px rgba(255, 255, 255, 0.801),
+        0 0 10px rgb(255, 255, 255);
+    opacity: 0.8;
+    will-change: transform;
+}
+
+.shooting-star {
+    position: absolute;
+    width: 2px;
+    height: 80px;
+    background: linear-gradient(45deg, white, transparent);
+    opacity: 0.8;
+    border-radius: 50%;
+    transform: rotate(45deg);
+    z-index: -1;
+    will-change: transform, opacity;
+    pointer-events: none;
+    animation: shooting 1s linear forwards;
+}
+
+@keyframes shooting {
+    0% {
+        transform: translate(0, 0) rotate(45deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate(-200px, 200px) rotate(45deg);
+        opacity: 0;
+    }
+}
+
+/* Black Hole Styling */
+.black-hole {
+    position: absolute;
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    background: radial-gradient(circle at center,
+            #000000 0%,
+            #1a0000 20%,
+            #330000 40%,
+            #4d0000 60%,
+            #660000 80%,
+            #800000 100%);
+    box-shadow:
+        0 0 30px rgba(255, 69, 0, 0.7),
+        0 0 60px rgba(255, 0, 0, 0.5),
+        inset 0 0 20px rgba(0, 0, 0, 0.9);
+    z-index: -1;
+    pointer-events: none;
+    opacity: 0;
+    animation: blackhole-appear 1.5s ease-out forwards;
+    filter: drop-shadow(0 0 10px rgba(255, 50, 0, 0.8));
+}
+
+.black-hole.disappear {
+    animation: blackhole-disappear 1.5s ease-in forwards !important;
+}
+
+@keyframes blackhole-appear {
+    0% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+
+    70% {
+        transform: scale(1.1);
+    }
+
+    100% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+}
+
+@keyframes blackhole-disappear {
+    0% {
+        transform: scale(1);
+        opacity: 0.9;
+    }
+
+    100% {
+        transform: scale(0.1);
+        opacity: 0;
+    }
+}
+
+/* Absorbed Star */
+.star.absorbed {
+    transition: all 0.5s ease-out;
+    z-index: 1;
+}
+
+/* Respawn Animation */
+@keyframes star-respawn {
+    0% {
+        transform: scale(0.5) translate(0, 0);
+        opacity: 0;
+        box-shadow: none;
+    }
+
+    50% {
+        opacity: 0.5;
+        box-shadow: 0 0 5px white;
+    }
+
+    100% {
+        transform: scale(1) translate(0, 0);
+        opacity: 1;
+        box-shadow: 0 0 20px rgba(255, 255, 255, 0.8),
+            0 0 10px white;
+    }
+}
+
+.star.respawning {
+    animation: star-respawn 1.5s ease-out forwards;
+    z-index: 0;
+}

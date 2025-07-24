@@ -1,0 +1,105 @@
+@import url('https://fonts.googleapis.com/css2?family=Audiowide&family=Exo+2:ital,wght@0,100..900;1,100..900&family=Orbitron:wght@400..900&display=swap');
+
+:root {
+    --primary-color: #6c5ce7;
+    --secondary-color: #00cec9;
+    --dark-color: #0f0e17;
+    --light-color: #fffffe;
+    --accent-color: #ff8906;
+    --text-color: #a7a9be;
+    --text-dark: #2d3436;
+    --bg-dark: #0f0e17;
+    --bg-light: #fffffe;
+    --overlay-color: rgba(15, 14, 23, 0.8);
+    --transition: all 0.3s ease;
+    --border-radius: 8px;
+    --box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+    --section-padding: 100px 0;
+}
+
+a {
+    color: #fff;
+    text-decoration: none;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    scroll-behavior: smooth;
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+    background-color: var(--bg-dark);
+}
+
+::-webkit-scrollbar-thumb {
+    background-color: var(--primary-color);
+    border-radius: 10px;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: var(--bg-dark);
+    color: #333;
+    max-width: 100vw;
+    min-height: 300vh;
+    overflow-x: hidden;
+}
+
+.container {
+    padding: 0 2rem;
+}
+
+/* aside nav */
+.navbar__container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    padding: 1rem 2rem;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: #0f0e1700;
+    backdrop-filter: blur(10px);
+    color: #fff;
+    z-index: 1000;
+}
+
+.brand {
+    text-transform: uppercase;
+    font-family: 'Audiowide', cursive;
+}
+
+.brand span {
+    color: var(--primary-color);
+}
+
+.nav__links {
+    display: flex;
+    align-items: center;
+    gap: 2rem;
+}
+
+.nav__link {
+    text-transform: capitalize;
+    font-family: "Exo 2", sans-serif;
+    font-weight: 500;
+    font-size: 1.1rem;
+}
+
+.nav__link::after {
+    content: '';
+    display: block;
+    width: 0;
+    height: 2px;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+    margin-top: 5px;
+}
+
+.nav__link:hover::after {
+    width: 80%;
+}

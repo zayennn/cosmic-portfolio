@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Elang Atha Zahran | Your Vision, My Code</title>
+    <link rel="stylesheet" href="./styles/style.css">
+    <link rel="stylesheet" href="./styles/cursor.css">
+    <link rel="stylesheet" href="./styles/stars.css">
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- costume cursor -->
+    <svg xmlns="http://www.w3.org/2000/svg" version="1.1">
+        <defs>
+            <filter id="goo">
+                <feGaussianBlur in="SourceGraphic" stdDeviation="6" result="blur" />
+                <feColorMatrix in="blur" mode="matrix" values="1 0 0 0 0  
+                0 1 0 0 0  
+                0 0 1 0 0  
+                0 0 0 35 -15" result="goo" />
+                <feComposite in="SourceGraphic" in2="goo" operator="atop" />
+            </filter>
+        </defs>
+    </svg>
+    <div id="cursor" class="Cursor"></div>
+
+    <!-- stars -->
+    <div class="stars__container">
+    </div>
+
+    <!-- main content -->
+    <div class="container">
+        <div class="navbar__container">
+            <h1 class="brand">
+                port<span>folio</span>
+            </h1>
+            <nav class="nav__links">
+                <a href="#" class="nav__link">Home</a>
+                <a href="#" class="nav__link">about</a>
+                <a href="#" class="nav__link">skills</a>
+                <a href="#" class="nav__link">education & experience</a>
+                <a href="#" class="nav__link">projects</a>
+                <a href="#" class="nav__link">contact</a>
+            </nav>
+        </div>
+
+        
+
+    </div>
+
+    <!-- jquery -->
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js"
+        integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/2.1.3/TweenMax.min.js"></script>
+    <script src="./scripts/cursor.js"></script>
+    <script src="./scripts/stars.js"></script>
+    <script src="./scripts/main.js"></script>
+</body>
+
+</html>

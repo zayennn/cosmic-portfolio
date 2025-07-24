@@ -1,0 +1,39 @@
+body,
+html {
+    cursor: none;
+}
+
+body.hovering .Cursor span {
+  width: 40px;
+  height: 40px;
+  transition: width 0.2s, height 0.2s;
+}
+
+a,
+button,
+input,
+select,
+textarea {
+    cursor: none !important;
+}
+
+.Cursor {
+    position: fixed;
+    top: 0;
+    left: 0;
+    z-index: 1000;
+    filter: url("#goo");
+    pointer-events: none;
+    mix-blend-mode: difference;
+    z-index: 9999;
+}
+
+.Cursor span {
+    position: absolute;
+    display: block;
+    width: 25px;
+    height: 25px;
+    border-radius: 50%;
+    background: white;
+    transform: translate(-50%, -50%);
+}
