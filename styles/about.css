@@ -83,10 +83,24 @@ section.about {
     margin-bottom: 1rem;
 }
 
+.about__content .btn {
+    display: block;
+    margin: 0 auto;
+}
+
 @media screen and (max-width: 992px) {
     .about__content {
         grid-template-columns: 1fr;
         text-align: center;
+    }
+
+    .image__content.about {
+        width: 250px;
+        height: 250px;
+    }
+    .image__content.about img {
+        width: 230px;
+        height: 230px;
     }
 
     .desc__about {

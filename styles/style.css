@@ -53,7 +53,10 @@ body {
 section.hero {
     display: grid;
     place-items: center;
-    grid-template-columns: 1fr 1fr;
+    /* grid-template-columns: 1fr 1fr; */
+    grid-template-areas:
+        "hero__content hero__content hero__image";
+    ;
     align-items: center;
     width: 100%;
     height: 100vh;
@@ -62,7 +65,8 @@ section.hero {
 }
 
 .hero__content {
-    justify-self: center;
+    grid-area: hero__content;
+    justify-self: center
 }
 
 .hero__subtitle {
@@ -103,6 +107,7 @@ section.hero {
 }
 
 .image__content.hero {
+    grid-area: hero__image;
     position: relative;
     width: 300px;
     height: 300px;
@@ -110,6 +115,7 @@ section.hero {
     display: flex;
     align-items: center;
     justify-content: center;
+    justify-self: start;
 }
 
 .image__content.hero::before {
@@ -188,6 +194,7 @@ section.hero {
     from {
         transform: translateY(0);
     }
+
     to {
         transform: translateY(-10px);
     }
@@ -195,9 +202,28 @@ section.hero {
 
 @media screen and (max-width: 992px) {
     section.hero {
-        grid-template-columns: 1fr;
+        grid-template-areas:
+            "hero__content"
+            "hero__image"
+        ;
         text-align: center;
-        margin-top: 50px;
+        padding-top: 80px;
+    }
+
+    .hero__socials {
+        justify-content: center;
+    }
+
+    .image__content.hero {
+        justify-self: center;
+        margin-top: 20px;
+        width: 250px;
+        height: 250px;
+    }
+
+    .image__content.hero img {
+        width: 230px;
+        height: 230px;
     }
 
     .hero__content .btn {
