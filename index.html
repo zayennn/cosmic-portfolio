@@ -5,9 +5,13 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Elang Atha Zahran | Your Vision, My Code</title>
+
+    <!-- my styles -->
     <link rel="stylesheet" href="./styles/style.css">
     <link rel="stylesheet" href="./styles/cursor.css">
     <link rel="stylesheet" href="./styles/stars.css">
+    <link rel="stylesheet" href="./styles/navbar.css">
+    <link rel="stylesheet" href="./styles/components.css">
 
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
@@ -35,18 +39,26 @@
             port<span>folio</span>
         </h1>
         <nav class="nav__links">
-            <a href="#" class="nav__link">Home</a>
-            <a href="#" class="nav__link">about</a>
-            <a href="#" class="nav__link">skills</a>
-            <a href="#" class="nav__link">education & experience</a>
-            <a href="#" class="nav__link">projects</a>
-            <a href="#" class="nav__link">contact</a>
+            <a href="#home" class="nav__link">Home</a>
+            <a href="#about" class="nav__link">about</a>
+            <a href="#skills" class="nav__link">skills</a>
+            <a href="#education-experience" class="nav__link">education & experience</a>
+            <a href="#projects" class="nav__link">projects</a>
+            <a href="#contact" class="nav__link">contact</a>
         </nav>
+        <div class="hamburger">
+            <input id="checkbox" type="checkbox">
+            <label class="toggle" for="checkbox">
+                <div id="bar1" class="bars"></div>
+                <div id="bar2" class="bars"></div>
+                <div id="bar3" class="bars"></div>
+            </label>
+        </div>
     </div>
 
     <!-- main content -->
     <div class="container">
-        <section class="hero">
+        <section class="hero" id="home">
             <div class="hero__content">
                 <p class="hero__subtitle">Hello Everyone, I'm</p>
                 <h1 class="hero__title">
@@ -57,10 +69,23 @@
                 </p>
                 <a href="#" class="btn btn-primary">About me</a>
             </div>
-            <div class="hero-image">
+            <div class="image__content hero">
                 <img src="./images/me.jpg" alt="Profile Image">
             </div>
         </section>
+
+        <section class="about" id="about">
+            <h1 class="section__title">
+                About <span>Me</span>
+            </h1>
+            <div class="section__devider"></div>
+            <div class="about__content">
+                <div class="image__content about">
+                    <img src="./images/about.jpg" alt="Elang Atha Zahran">
+                </div>
+            </div>
+        </section>
+        <div class="content__overlay about"></div>
     </div>
 
     <!-- jquery -->

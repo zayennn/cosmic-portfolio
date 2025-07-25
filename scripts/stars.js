@@ -1,10 +1,10 @@
 // Jumlah bintang dan level ukuran
-const starCount = 30;
+const starCount = 200;
 const starLevels = [
-    { size: 6, speed: 0.05, brightness: 255 },   // paling besar dan paling lambat
-    { size: 5, speed: 0.1, brightness: 200 },
-    { size: 4, speed: 0.15, brightness: 150 },
-    { size: 3, speed: 0.2, brightness: 100 }, // paling kecil dan paling cepat
+    { size: 3, speed: 0.1, brightness: 180 },   // paling besar dan paling lambat
+    { size: 2, speed: 0.3, brightness: 150 },
+    { size: 1, speed: 0.5, brightness: 100 },
+    { size: 0.7, speed: 0.8, brightness: 70 }, // paling kecil dan paling cepat
 ];
 
 // Ambil tinggi dokumen

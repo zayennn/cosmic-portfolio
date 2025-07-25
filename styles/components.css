@@ -1,0 +1,119 @@
+/* section */
+section {
+    min-height: 100vh;
+}
+
+.section__title {
+    font-family: 'Audiowide', cursive;
+    font-size: 2.5rem;
+    color: var(--light-color);
+    text-align: center;
+    margin-bottom: 2rem;
+    position: relative;
+}
+
+.section__title span {
+    color: var(--primary-color);
+}
+
+.section__title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 2px;
+    background-color: var(--primary-color);
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.section__devider {
+    width: 100px;
+    height: 2px;
+    background: linear-gradient(to right, var(--primary-color), var(--secondary-color));
+    margin: 30px auto 0 auto;
+}
+
+
+
+/* content overlays */
+.content__overlay.about {
+    position: absolute;
+    top: 60vh;
+    left: 0;
+    width: 100vw;
+    height: 200vh;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.1) 0%, rgba(15, 14, 23, 0.9) 70%);
+    z-index: -5;
+}
+
+
+
+/* Buttons */
+.btn {
+    position: relative;
+    display: block;
+    width: fit-content;
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--light-color);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: none;
+    z-index: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: inherit;
+    transition: var(--transition);
+}
+
+.btn::before {
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--primary-color), transparent 70%);
+    animation: cosmicPulse 6s infinite linear;
+    opacity: 0.2;
+}
+
+.btn::after {
+    content: '';
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transform: skewX(-30deg);
+    transition: 0.5s;
+}
+
+.btn:hover::after {
+    left: 150%;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+}
+
+@keyframes cosmicPulse {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
