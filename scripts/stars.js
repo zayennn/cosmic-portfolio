@@ -94,7 +94,7 @@ function createBlackHole() {
 
     starsWrapper.appendChild(blackHole);
 
-    const radius = 250;
+    const radius = 200;
     const centerX = left + 60;
     const centerY = top + 60;
     const absorbedStars = [];

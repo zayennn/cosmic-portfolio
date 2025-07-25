@@ -12,8 +12,13 @@
     <link rel="stylesheet" href="./styles/stars.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/about.css">
 
+    <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+
+    <!-- aos -->
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
 </head>
 
 <body>
@@ -61,21 +66,43 @@
     <div class="container">
         <section class="hero" id="home">
             <div class="hero__content">
-                <p class="hero__subtitle">Hello Everyone, I'm</p>
-                <h1 class="hero__title">
+                <p class="hero__subtitle" data-aos="fade-up">Hello Everyone, I'm</p>
+                <h1 class="hero__title" data-aos="fade-up" data-aos-delay="300">
                     Elang Atha <span>Zahran 👋</span>
                 </h1>
-                <p class="hero__description">
+                <p class="hero__description" data-aos="fade-up" data-aos-delay="600">
                     I'm a, <span id="typed"></span>
                 </p>
-                <a href="#" class="btn btn-primary">About me</a>
+                <div class="hero__socials" data-aos="fade-up" data-aos-delay="900">
+                    <a href="#" class="github">
+                        <i class="fab fa-github"></i>
+                        <i class="fab fa-github"></i>
+                    </a>
+                    <a href="#" class="instagram">
+                        <i class="fab fa-instagram"></i>
+                        <i class="fab fa-instagram"></i>
+                    </a>
+                    <a href="#" class="linkedin">
+                        <i class="fab fa-linkedin"></i>
+                        <i class="fab fa-linkedin"></i>
+                    </a>
+                </div>
             </div>
-            <div class="image__content hero">
+            <div class="image__content hero" data-aos="fade-up" data-aos-delay="1200">
                 <img src="./images/me.jpg" alt="Profile Image">
             </div>
+
+            <a href="#about">
+                <button class="mouse__down">
+                    <div class="circle"></div>
+                    <p>
+                        Scroll Down
+                    </p>
+                </button>
+            </a>
         </section>
 
-        <!-- <section class="about" id="about">
+        <section class="about" id="about">
             <h1 class="section__title">
                 About <span>Me</span>
             </h1>
@@ -84,8 +111,25 @@
                 <div class="image__content about">
                     <img src="./images/about.jpg" alt="Elang Atha Zahran">
                 </div>
+                <div class="desc__about">
+                    <h1>I'm a passionate web <span>developer</span></h1>
+                    <p class="desc__about subtitle">
+                        As a passionate Fullstack Web Developer, I specialize in building scalable, responsive, and
+                        user-friendly web applications. I work with a modern tech stack including HTML5, CSS3, Bootstrap
+                        5, JavaScript, PHP, Laravel, and React.js. I take pride in writing clean, efficient code and
+                        creating seamless user experiences.
+                    </p>
+                    <p class="desc__about subtitle">
+                        I thrive in team environments where collaboration and continuous learning are key. Keeping up
+                        with the latest technologies and best practices is part of my daily routine, ensuring that the
+                        solutions I develop are not only functional but also future-ready. Whether it's front-end design
+                        or back-end logic, I enjoy bringing ideas to life through code and solving real-world problems
+                        with smart digital solutions.
+                    </p>
+                    <a href="#" class="btn btn-primary">Download Cv</a>
+                </div>
             </div>
-        </section> -->
+        </section>
         <div class="content__overlay about"></div>
     </div>
 
@@ -107,6 +151,12 @@
             fadeOut: true,
             loop: true
         });
+    </script>
+
+    <!-- aos -->
+    <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
+    <script>
+        AOS.init();
     </script>
 
     <!-- my styles -->
