@@ -44,14 +44,9 @@ body {
     background-color: var(--bg-dark);
     color: #333;
     width: 100%;
-    height: 100%;
+    height: 100vh;
     overflow-x: hidden;
-}
-
-html,
-body {
-    height: auto;
-    min-height: 300vh;
+    position: relative;
 }
 
 /* main content */
@@ -130,7 +125,6 @@ section.hero {
     border-radius: 50% / 40%;
     background: linear-gradient(45deg, var(--primary-color), var(--accent-color));
     animation: rotateHeroImage 6s linear infinite;
-    /* filter: blur(2px); */
 }
 
 @keyframes rotateHeroImage {
@@ -164,7 +158,6 @@ section.hero {
         margin: 0 auto 50px auto;
     }
 }
-
 
 
 /* about section */
@@ -216,8 +209,6 @@ section.about {
         transform: rotate(360deg);
     }
 }
-
-
 
 .image__content.about img {
     position: relative;
