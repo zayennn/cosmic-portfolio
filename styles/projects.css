@@ -106,7 +106,7 @@ section.projects .btn__group .btn {
 /* banner */
 .banner {
     width: calc(100% - 5rem);
-    height: 200px;
+    height: auto;
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     border-radius: 12px;
     padding: 2rem;
@@ -211,4 +211,35 @@ section.projects .btn__group .btn {
 .btn__banner:hover {
     transform: translateY(-2px);
     box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+}
+
+@media (max-width: 992px) {
+    .projects__content {
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 20px;
+        padding-top: 50px;
+        perspective: 1000px;
+    }
+}
+
+@media (max-width: 576px) {
+    .projects__content {
+        display: grid;
+        grid-template-columns: 1fr;
+        gap: 20px;
+        padding-top: 50px;
+        perspective: 1000px;
+    }
+
+    .banner h1 {
+        font-size: 1.8rem;
+        margin-bottom: 10px;
+        font-weight: 700;
+        font-family: 'Audiowide', sans-serif;
+    }
+
+    .contact__info .hero__socials {
+        justify-content: flex-start !important;
+    }
 }
