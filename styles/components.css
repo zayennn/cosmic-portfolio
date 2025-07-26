@@ -65,186 +65,196 @@ section {
     z-index: -5;
 }
 
+.content__overlay-projects {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 1000px;
+    background: radial-gradient(circle, rgba(108, 92, 231, 0.1) 0%, rgba(15, 14, 23, 0.9) 60%);
+    z-index: -5;
+}
 
-    /* Buttons */
-    .btn {
-        position: relative;
-        display: block;
-        width: fit-content;
-        padding: 12px 30px;
-        border-radius: var(--border-radius);
-        font-weight: 600;
-        text-transform: capitalize;
-        color: var(--light-color);
-        background-color: transparent;
-        border: 2px solid var(--primary-color);
-        overflow: hidden;
-        transition: var(--transition);
-        cursor: none;
-        z-index: 0;
-        font-family: 'Orbitron', sans-serif;
+
+/* Buttons */
+.btn {
+    position: relative;
+    display: block;
+    width: fit-content;
+    padding: 12px 30px;
+    border-radius: var(--border-radius);
+    font-weight: 600;
+    text-transform: capitalize;
+    color: var(--light-color);
+    background-color: transparent;
+    border: 2px solid var(--primary-color);
+    overflow: hidden;
+    transition: var(--transition);
+    cursor: none;
+    z-index: 0;
+    font-family: 'Orbitron', sans-serif;
+}
+
+.btn::before,
+.btn::after {
+    content: '';
+    position: absolute;
+    z-index: -1;
+    border-radius: inherit;
+    transition: var(--transition);
+}
+
+.btn::before {
+    top: -50%;
+    left: -50%;
+    width: 200%;
+    height: 200%;
+    background: radial-gradient(circle, var(--primary-color), transparent 70%);
+    animation: cosmicPulse 6s infinite linear;
+    opacity: 0.2;
+}
+
+.btn::after {
+    content: '';
+    top: 0;
+    left: -75%;
+    width: 50%;
+    height: 100%;
+    background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
+    transform: skewX(-30deg);
+    transition: 0.5s;
+}
+
+.btn:hover::after {
+    left: 150%;
+}
+
+.btn:hover {
+    background-color: var(--primary-color);
+    color: var(--light-color);
+    box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
+}
+
+@keyframes cosmicPulse {
+    0% {
+        transform: rotate(0deg);
     }
 
-    .btn::before,
-    .btn::after {
-        content: '';
-        position: absolute;
-        z-index: -1;
-        border-radius: inherit;
-        transition: var(--transition);
+    100% {
+        transform: rotate(360deg);
     }
-
-    .btn::before {
-        top: -50%;
-        left: -50%;
-        width: 200%;
-        height: 200%;
-        background: radial-gradient(circle, var(--primary-color), transparent 70%);
-        animation: cosmicPulse 6s infinite linear;
-        opacity: 0.2;
-    }
-
-    .btn::after {
-        content: '';
-        top: 0;
-        left: -75%;
-        width: 50%;
-        height: 100%;
-        background: linear-gradient(120deg, transparent, rgba(255, 255, 255, 0.6), transparent);
-        transform: skewX(-30deg);
-        transition: 0.5s;
-    }
-
-    .btn:hover::after {
-        left: 150%;
-    }
-
-    .btn:hover {
-        background-color: var(--primary-color);
-        color: var(--light-color);
-        box-shadow: 0 0 20px var(--primary-color), 0 0 40px var(--primary-color);
-    }
-
-    @keyframes cosmicPulse {
-        0% {
-            transform: rotate(0deg);
-        }
-
-        100% {
-            transform: rotate(360deg);
-        }
-    }
+}
 
 
 
-    /* socials */
-    /* github */
-    .github {
-        background-color: #2e2e31;
-        color: #fff;
-        padding: 1.5rem;
-        border-radius: 50%;
-        position: relative;
-        transition: all 0.3s ease;
-        overflow: hidden;
-    }
+/* socials */
+/* github */
+.github {
+    background-color: #2e2e31;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
 
-    .github i {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.4rem;
-        transition: all 0.3s ease;
-    }
+.github i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
 
-    .github i:nth-child(1) {
-        top: -50%;
-    }
+.github i:nth-child(1) {
+    top: -50%;
+}
 
-    .github:hover {
-        background-color: #fff;
-        color: #2e2e31;
-    }
+.github:hover {
+    background-color: #fff;
+    color: #2e2e31;
+}
 
-    .github:hover i:nth-child(1) {
-        top: 50%;
-    }
+.github:hover i:nth-child(1) {
+    top: 50%;
+}
 
-    .github:hover i:nth-child(2) {
-        top: 150%;
-    }
+.github:hover i:nth-child(2) {
+    top: 150%;
+}
 
-    /* instagram */
-    .instagram {
-        background-color: #e322b2;
-        color: #fff;
-        padding: 1.5rem;
-        border-radius: 50%;
-        position: relative;
-        transition: all 0.3s ease;
-        overflow: hidden;
-    }
+/* instagram */
+.instagram {
+    background-color: #e322b2;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
 
-    .instagram i {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.4rem;
-        transition: all 0.3s ease;
-    }
+.instagram i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
 
-    .instagram i:nth-child(1) {
-        top: -50%;
-    }
+.instagram i:nth-child(1) {
+    top: -50%;
+}
 
-    .instagram:hover {
-        background-color: #fff;
-        color: #e322b2;
-    }
+.instagram:hover {
+    background-color: #fff;
+    color: #e322b2;
+}
 
-    .instagram:hover i:nth-child(1) {
-        top: 50%;
-    }
+.instagram:hover i:nth-child(1) {
+    top: 50%;
+}
 
-    .instagram:hover i:nth-child(2) {
-        top: 150%;
-    }
+.instagram:hover i:nth-child(2) {
+    top: 150%;
+}
 
-    /* linkedin */
-    .linkedin {
-        background-color: #0077b5;
-        color: #fff;
-        padding: 1.5rem;
-        border-radius: 50%;
-        position: relative;
-        transition: all 0.3s ease;
-        overflow: hidden;
-    }
+/* linkedin */
+.linkedin {
+    background-color: #0077b5;
+    color: #fff;
+    padding: 1.5rem;
+    border-radius: 50%;
+    position: relative;
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
 
-    .linkedin i {
-        position: absolute;
-        top: 50%;
-        left: 50%;
-        transform: translate(-50%, -50%);
-        font-size: 1.4rem;
-        transition: all 0.3s ease;
-    }
+.linkedin i {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 1.4rem;
+    transition: all 0.3s ease;
+}
 
-    .linkedin i:nth-child(1) {
-        top: -50%;
-    }
+.linkedin i:nth-child(1) {
+    top: -50%;
+}
 
-    .linkedin:hover {
-        background-color: #fff;
-        color: #0077b5;
-    }
+.linkedin:hover {
+    background-color: #fff;
+    color: #0077b5;
+}
 
-    .linkedin:hover i:nth-child(1) {
-        top: 50%;
-    }
+.linkedin:hover i:nth-child(1) {
+    top: 50%;
+}
 
-    .linkedin:hover i:nth-child(2) {
-        top: 150%;
-    }
+.linkedin:hover i:nth-child(2) {
+    top: 150%;
+}

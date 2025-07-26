@@ -1,4 +1,4 @@
-const starCount = 200;
+const starCount = 600;
 const starLevels = [
     { size: 3, speed: 0.1, brightness: 180 },
     { size: 2, speed: 0.3, brightness: 150 },
