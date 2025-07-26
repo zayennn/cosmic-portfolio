@@ -333,15 +333,15 @@
                 My <span>Projects</span>
             </h1>
             <div class="section__devider"></div>
-            <div class="btn__group">
-                <button class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">All Projects</button>
-                <button class="btn btn-primary" data-aos="fade-up" data-aos-delay="600">Web Development</button>
-                <button class="btn btn-primary" data-aos="fade-up" data-aos-delay="900">Certifications</button>
+            <div class="btn__group filter-controls">
+                <button class="btn btn-primary" data-filter="all">All Projects</button>
+                <button class="btn btn-primary" data-filter=".web">Web Development</button>
+                <button class="btn btn-primary" data-filter=".cert">Certifications</button>
             </div>
-            <div class="projects__content">
+            <div class="projects__content mix-container">
 
                 <!-- card 1 -->
-                <div class="project__card">
+                <div class="project__card mix web">
                     <div class="image__project">
                         <img src="./images/projetcs/budget_tracker.png" alt="Budget tracker">
                     </div>
@@ -360,7 +360,7 @@
                 </div>
 
                 <!-- card 2 -->
-                <div class="project__card">
+                <div class="project__card mix cert">
                     <div class="image__project">
                         <img src="./images/projetcs/certiport.jpg" alt="Certiport">
                     </div>
@@ -379,7 +379,7 @@
                 </div>
 
                 <!-- card 3 -->
-                <div class="project__card">
+                <div class="project__card mix web">
                     <div class="image__project">
                         <img src="./images/projetcs/react portfolio.png" alt="React Portfolio">
                     </div>
@@ -435,6 +435,32 @@
             glare: true,
             "max-glare": 0.1,
             <!-- reverse: true, -->
+        });
+    </script>
+
+    <!-- mixitup -->
+    <script src="https://cdn.jsdelivr.net/npm/mixitup@3/dist/mixitup.min.js"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            var mixer = mixitup('.mix-container', {
+                animation: {
+                    duration: 400,
+                    effects: 'fade scale(0.9) translateY(-10px)', // mirip isotope
+                    easing: 'ease-in-out'
+                },
+                selectors: {
+                    target: '.mix'
+                }
+            });
+
+            // tombol active styling
+            const buttons = document.querySelectorAll('.filter-controls .btn');
+            buttons.forEach(button => {
+                button.addEventListener('click', function () {
+                    buttons.forEach(btn => btn.classList.remove('active'));
+                    this.classList.add('active');
+                });
+            });
         });
     </script>
 

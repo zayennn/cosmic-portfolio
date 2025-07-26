@@ -52,7 +52,7 @@ body {
 
 /* main content */
 section.projects {
-    padding-top: 100px 2rem 0 2rem;
+    padding: 100px 2rem 0 2rem;
 }
 
 section.projects .btn__group {
@@ -65,6 +65,11 @@ section.projects .btn__group {
 
 section.projects .btn__group .btn {
     border-radius: 1000px;
+}
+
+.filter-controls .btn.active {
+    background-color: var(--primary-color);
+    color: #fff;
 }
 
 .projects__content {
@@ -136,12 +141,15 @@ section.projects .btn__group .btn {
 .project__card:hover .image__project {
     transform: translateZ(40px);
 }
+
 .project__card:hover .title__card-project {
     transform: translateZ(30px);
 }
+
 .project__card:hover .card__content-desc {
     transform: translateZ(20px);
 }
+
 .project__card:hover .btn__link-card {
     transform: translateZ(10px);
 }
