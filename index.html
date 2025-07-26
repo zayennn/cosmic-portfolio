@@ -12,7 +12,9 @@
     <link rel="stylesheet" href="./styles/stars.css">
     <link rel="stylesheet" href="./styles/navbar.css">
     <link rel="stylesheet" href="./styles/components.css">
+    <link rel="stylesheet" href="./styles/hero.css">
     <link rel="stylesheet" href="./styles/about.css">
+    <link rel="stylesheet" href="./styles/skills.css">
 
     <!-- font awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -64,6 +66,7 @@
 
     <!-- main content -->
     <div class="container">
+        <!-- hero section -->
         <section class="hero" id="home">
             <div class="hero__content">
                 <p class="hero__subtitle" data-aos="fade-up">Hello Everyone, I'm</p>
@@ -102,35 +105,192 @@
             </a>
         </section>
 
+        <!-- about section -->
         <section class="about" id="about">
             <h1 class="section__title">
                 About <span>Me</span>
             </h1>
             <div class="section__devider"></div>
             <div class="about__content">
-                <div class="image__content about">
+                <div class="image__content about" data-aos="fade-up">
                     <img src="./images/about.jpg" alt="Elang Atha Zahran">
                 </div>
                 <div class="desc__about">
-                    <h1>I'm a passionate web <span>developer</span></h1>
-                    <p class="desc__about subtitle">
+                    <h1 data-aos="fade-up">I'm a passionate web <span>developer</span></h1>
+                    <p class="desc__about subtitle" data-aos="fade-up">
                         As a passionate Fullstack Web Developer, I specialize in building scalable, responsive, and
                         user-friendly web applications. I work with a modern tech stack including HTML5, CSS3, Bootstrap
                         5, JavaScript, PHP, Laravel, and React.js. I take pride in writing clean, efficient code and
                         creating seamless user experiences.
                     </p>
-                    <p class="desc__about subtitle">
+                    <p class="desc__about subtitle" data-aos="fade-up">
                         I thrive in team environments where collaboration and continuous learning are key. Keeping up
                         with the latest technologies and best practices is part of my daily routine, ensuring that the
                         solutions I develop are not only functional but also future-ready. Whether it's front-end design
                         or back-end logic, I enjoy bringing ideas to life through code and solving real-world problems
                         with smart digital solutions.
                     </p>
-                    <a href="#" class="btn btn-primary">Download Cv</a>
+                    <a href="#" class="btn btn-primary" data-aos="fade-up">Download Cv</a>
                 </div>
             </div>
         </section>
-        <div class="content__overlay about"></div>
+        <div class="content__overlay-about"></div>
+
+        <!-- skills section -->
+        <section id="skills" class="skills section">
+            <h1 class="section__title">About <span>Me</span></h1>
+            <div class="section__devider"></div>
+
+            <div class="skills__slider" id="skillsSlider">
+                <div class="skills__wrapper" id="skillsWrapper" data-aos="fade-up">
+                    <!-- Skill Cards -->
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-html5"></i></div>
+                        <h3>HTML5</h3>
+                        <p>Advanced markup for modern <br> web applications.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-css3-alt"></i></div>
+                        <h3>CSS3</h3>
+                        <p>Styling and animations for <br> beautiful interfaces.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-js"></i></div>
+                        <h3>JavaScript</h3>
+                        <p>Interactive and dynamic web <br> experiences.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-react"></i></div>
+                        <h3>React</h3>
+                        <p>Building scalable frontend applications.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-vuejs"></i></div>
+                        <h3>Vue</h3>
+                        <p>Reactive interfaces with simplicity.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-node"></i></div>
+                        <h3>Express</h3>
+                        <p>Fast backend with Node.js.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-flask"></i></div>
+                        <h3>Flask</h3>
+                        <p>Lightweight Python backend <br> framework.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-php"></i></div>
+                        <h3>PHP</h3>
+                        <p>Backend scripting language.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-laravel"></i></div>
+                        <h3>Laravel</h3>
+                        <p>Elegant PHP framework.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-bootstrap"></i></div>
+                        <h3>Bootstrap</h3>
+                        <p>Responsive frontend framework.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-code"></i></div>
+                        <h3>Tailwind CSS</h3>
+                        <p>Utility-first CSS framework.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-database"></i></div>
+                        <h3>MySQL</h3>
+                        <p>Relational database management <br> system.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-git-alt"></i></div>
+                        <h3>Git</h3>
+                        <p>Version control system.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-github"></i></div>
+                        <h3>GitHub</h3>
+                        <p>Host and collaborate on code.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-database"></i></div>
+                        <h3>PostgreSQL</h3>
+                        <p>Advanced open-source database.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-bolt"></i></div>
+                        <h3>Vite</h3>
+                        <p>Next-generation frontend tooling.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-code-branch"></i></div>
+                        <h3>TypeScript</h3>
+                        <p>Typed superset of JavaScript.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fab fa-python"></i></div>
+                        <h3>Python</h3>
+                        <p>Powerful general-purpose language.</p>
+                    </div>
+                    <div class="skill__card">
+                        <div class="skill__icon"><i class="fas fa-layer-group"></i></div>
+                        <h3>Next.js</h3>
+                        <p>React framework with SSR.</p>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- education & experience -->
+        <section id="education-experience" class="experience section">
+            <h1 class="section__title">
+                Education & <span>Experience</span>
+            </h1>
+            <div class="section__devider"></div>
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-date">2018 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>SMK Wikrama Bogor</h3>
+                        <h4>As PPLG</h4>
+                        <p>
+                            The Software and Game Engineering Department at SMK Wikrama Bogor provides website and
+                            application development skills, as well as practical experience in frontend and backend
+                            technologies.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2018 - 2021</div>
+                    <div class="timeline-content">
+                        <h3>Frontend Developer</h3>
+                        <h4>Stellar Solutions</h4>
+                        <p>Developed responsive web applications and collaborated with designers to implement UI/UX.
+                        </p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2015 - 2018</div>
+                    <div class="timeline-content">
+                        <h3>Bachelor's in Computer Science</h3>
+                        <h4>Galaxy University</h4>
+                        <p>Specialized in web technologies and human-computer interaction.</p>
+                    </div>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-date">2012 - 2015</div>
+                    <div class="timeline-content">
+                        <h3>UI/UX Design Certification</h3>
+                        <h4>Nebula Design Institute</h4>
+                        <p>Learned principles of design, typography, and user experience.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="section-overlay cosmic-overlay"></div>
+            <div class="content__overlay-experience"></div>
+        </section>
     </div>
 
     <!-- jquery -->

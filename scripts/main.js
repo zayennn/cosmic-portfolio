@@ -77,3 +77,11 @@ document.addEventListener('DOMContentLoaded', function () {
         }
     });
 });
+
+
+// skills slider
+const wrapper = document.getElementById('skillsWrapper');
+const cards = Array.from(wrapper.children);
+cards.forEach(card => {
+    wrapper.appendChild(card.cloneNode(true));
+});

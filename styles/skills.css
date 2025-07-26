@@ -1,0 +1,79 @@
+.skills {
+    padding-top: 100px;
+}
+
+.section__title {
+    text-align: center;
+    font-size: 2.5rem;
+}
+
+.skills__slider {
+    overflow-x: auto;
+    scroll-behavior: smooth;
+    margin: 50px 0 0 0;
+    -webkit-overflow-scrolling: touch;
+    white-space: nowrap;
+    width: 100%;
+}
+
+.skills__slider::-webkit-scrollbar {
+    display: none;
+}
+
+.skills__wrapper {
+    display: flex;
+    gap: 30px;
+    padding: 30px 0 30px 20px;
+    width: max-content;
+    animation: scrollSkills 60s linear infinite;
+}
+
+@keyframes scrollSkills {
+    0% {
+        transform: translateX(0%);
+    }
+
+    100% {
+        transform: translateX(-50%);
+    }
+}
+
+.skill__card {
+    background-color: #110f1e;
+    padding: 30px;
+    border-radius: 20px;
+    box-shadow: var(--box-shadow);
+    width: 300px;
+    flex-shrink: 0;
+    transition: 0.3s;
+}
+
+.skill__card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.4);
+}
+
+.skill__icon {
+    width: 60px;
+    height: 60px;
+    background: linear-gradient(to right, #00d2ff, #3a47d5);
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 20px;
+    font-size: 1.5rem;
+    color: white;
+}
+
+.skill__card h3 {
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+    color: #00d2ff;
+    font-family: 'Audiowide', cursive;
+}
+
+.skill__card p {
+    font-size: 0.95rem;
+    color: #bbb;
+}
