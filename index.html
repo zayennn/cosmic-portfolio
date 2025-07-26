@@ -251,8 +251,10 @@
             </h1>
             <div class="section__devider"></div>
             <div class="timeline">
+                <!-- item 1 -->
                 <div class="timeline-item">
                     <div class="timeline-date" data-aos="fade-right">2018 - 2021</div>
+                    <div class="dot left"></div>
                     <div class="timeline-content" data-aos="fade-right" data-aos-delay="300">
                         <h3>SMK Wikrama Bogor</h3>
                         <h4>As PPLG</h4>
@@ -263,8 +265,11 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- item 2 -->
                 <div class="timeline-item">
                     <div class="timeline-date" data-aos="fade-left">August - December 2024</div>
+                    <div class="dot right"></div>
                     <div class="timeline-content" data-aos="fade-left" data-aos-delay="300">
                         <h3>Global Gengou Gakko</h3>
                         <h4>Learning Japanese Language</h4>
@@ -274,8 +279,11 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- item 3 -->
                 <div class="timeline-item">
                     <div class="timeline-date" data-aos="fade-right">July - December 2023</div>
+                    <div class="dot left"></div>
                     <div class="timeline-content" data-aos="fade-right" data-aos-delay="300">
                         <h3>Frontend Web Developer Intern</h3>
                         <h4>PT. Kreasi Sawala Nusantara</h4>
@@ -285,8 +293,11 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- item 4 -->
                 <div class="timeline-item">
                     <div class="timeline-date" data-aos="fade-left">May 2024</div>
+                    <div class="dot right"></div>
                     <div class="timeline-content" data-aos="fade-left" data-aos-delay="300">
                         <h3>Competence Test</h3>
                         <h4>SMK Wikrama Bogor</h4>
@@ -297,8 +308,11 @@
                         </p>
                     </div>
                 </div>
+
+                <!-- item 5 -->
                 <div class="timeline-item">
                     <div class="timeline-date" data-aos="fade-right">March 2024 - Present</div>
+                    <div class="dot left"></div>
                     <div class="timeline-content" data-aos="fade-right" data-aos-delay="300">
                         <h3>Freelance</h3>
                         <h4>Web Developer</h4>
@@ -311,6 +325,78 @@
                 </div>
             </div>
             <div class="content__overlay-experience"></div>
+        </section>
+
+        <!-- projects section -->
+        <section class="projects" id="projects">
+            <h1 class="section__title">
+                My <span>Projects</span>
+            </h1>
+            <div class="section__devider"></div>
+            <div class="btn__group">
+                <button class="btn btn-primary" data-aos="fade-up" data-aos-delay="300">All Projects</button>
+                <button class="btn btn-primary" data-aos="fade-up" data-aos-delay="600">Web Development</button>
+                <button class="btn btn-primary" data-aos="fade-up" data-aos-delay="900">Certifications</button>
+            </div>
+            <div class="projects__content">
+
+                <!-- card 1 -->
+                <div class="project__card">
+                    <div class="image__project">
+                        <img src="./images/projetcs/budget_tracker.png" alt="Budget tracker">
+                    </div>
+                    <div class="card__content">
+                        <h1 class="title__card-project">Budget Tracker</h1>
+                        <p class="card__content-desc">
+                            A web application to track your expenses and income, helping you manage your finances
+                            effectively.
+                        </p>
+                        <div class="btn__group">
+                            <a href="" class="btn__link-card">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 2 -->
+                <div class="project__card">
+                    <div class="image__project">
+                        <img src="./images/projetcs/certiport.jpg" alt="Certiport">
+                    </div>
+                    <div class="card__content">
+                        <h1 class="title__card-project">Certiport</h1>
+                        <p class="card__content-desc">
+                            A certification platform that provides various IT certifications, including Microsoft,
+                            Adobe, and Autodesk.
+                        </p>
+                        <div class="btn__group">
+                            <a href="" class="btn__link-card">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- card 3 -->
+                <div class="project__card">
+                    <div class="image__project">
+                        <img src="./images/projetcs/react portfolio.png" alt="React Portfolio">
+                    </div>
+                    <div class="card__content">
+                        <h1 class="title__card-project">React Portfolio</h1>
+                        <p class="card__content-desc">
+                            A personal portfolio website built with React, showcasing my skills, projects, and
+                            experience.
+                        </p>
+                        <div class="btn__group">
+                            <a href="" class="btn__link-card">
+                                <i class="fas fa-link"></i>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </section>
     </div>
 
@@ -338,6 +424,18 @@
     <script src="https://unpkg.com/aos@next/dist/aos.js"></script>
     <script>
         AOS.init();
+    </script>
+
+    <!-- tilt -->
+    <script src="./scripts/tilt.min.js"></script>
+    <script type="text/javascript">
+        VanillaTilt.init(document.querySelectorAll(".project__card"), {
+            max: 25,
+            speed: 400,
+            glare: true,
+            "max-glare": 0.1,
+            <!-- reverse: true, -->
+        });
     </script>
 
     <!-- my styles -->

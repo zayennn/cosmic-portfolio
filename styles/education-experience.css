@@ -1,5 +1,6 @@
 section.experience {
     position: relative;
+    padding-top: 100px;
 }
 
 .timeline {
@@ -55,22 +56,21 @@ section.experience {
     position: relative;
 }
 
-.timeline-content::before {
-    content: '';
+.dot {
     position: absolute;
     width: 20px;
     height: 20px;
     background-color: var(--primary-color);
     border-radius: 50%;
-    top: 30px;
+    top: 100px;
 }
 
-.timeline-item:nth-child(odd) .timeline-content::before {
-    right: -60px;
+.dot.left {
+    right: -10px;
 }
 
-.timeline-item:nth-child(even) .timeline-content::before {
-    left: -60px;
+.dot.right {
+    left: -10px;
 }
 
 .timeline-content h3 {
@@ -118,7 +118,11 @@ section.experience {
         padding-left: 80px;
     }
 
-    .timeline-content::before {
-        left: -60px !important;
+    .dot.left {
+        left: 20px;
+    }
+
+    .dot.right {
+        left: 20px;
     }
 }
